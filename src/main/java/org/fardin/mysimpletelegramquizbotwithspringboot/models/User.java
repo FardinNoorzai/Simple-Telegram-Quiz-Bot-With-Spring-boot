@@ -1,7 +1,7 @@
 package org.fardin.mysimpletelegramquizbotwithspringboot.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.fardin.mysimpletelegramquizbotwithspringboot.states.UserState;
 
 import java.util.Objects;
 
@@ -9,10 +9,13 @@ import java.util.Objects;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     Long userid;
     String name;
     String username;
+    @Transient
+    UserState userState;
 
     public int getId() {
         return id;
@@ -32,6 +35,14 @@ public class User {
 
     public String getName() {
         return name;
+    }
+
+    public UserState getUserState() {
+        return userState;
+    }
+
+    public void setUserState(UserState userState) {
+        this.userState = userState;
     }
 
     public void setName(String name) {

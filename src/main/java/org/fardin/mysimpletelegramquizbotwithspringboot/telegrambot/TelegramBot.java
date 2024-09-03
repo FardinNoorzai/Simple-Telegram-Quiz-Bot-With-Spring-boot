@@ -1,12 +1,12 @@
 package org.fardin.mysimpletelegramquizbotwithspringboot.telegrambot;
 
-import org.fardin.mysimpletelegramquizbotwithspringboot.commands.Command;
 import org.fardin.mysimpletelegramquizbotwithspringboot.commands.CommandDispatcher;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.bots.AbsSender;
 
 import java.util.List;
 
@@ -46,5 +46,10 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Override
     public void onRegister() {
         super.onRegister();
+    }
+
+    @Bean
+    public AbsSender sender(){
+        return this;
     }
 }
