@@ -12,12 +12,15 @@ public class CommandDispatcher {
     UserStateService userStateService;
     StartCommand startCommand;
     HomeCommand homeCommand;
+    SelectQuizCommand selectQuizCommand;
+    SelectQuizQuestionCountCommand selectQuizQuestionCountCommand;
 
-
-    public CommandDispatcher(UserStateService userStateService,@Lazy StartCommand startCommand,@Lazy HomeCommand homeCommand) {
+    public CommandDispatcher(UserStateService userStateService, @Lazy StartCommand startCommand,@Lazy HomeCommand homeCommand,@Lazy SelectQuizCommand selectQuizCommand,@Lazy SelectQuizQuestionCountCommand selectQuizQuestionCountCommand) {
         this.userStateService = userStateService;
         this.startCommand = startCommand;
         this.homeCommand = homeCommand;
+        this.selectQuizCommand = selectQuizCommand;
+        this.selectQuizQuestionCountCommand = selectQuizQuestionCountCommand;
     }
 
     public void dispatch(Update update){
@@ -25,9 +28,13 @@ public class CommandDispatcher {
         switch (user.getUserState().getConversationState()){
             case START:
                 startCommand.execute(update);
-                break;
             case HOME:
                 homeCommand.execute(update);
+            case SELECT_QUIZ:
+                selectQuizCommand.execute(update);
+            case SELECT_QUIZ_QUESTION_COUNT:
+                selectQuizQuestionCountCommand.execute(update);
+
 
 
         }

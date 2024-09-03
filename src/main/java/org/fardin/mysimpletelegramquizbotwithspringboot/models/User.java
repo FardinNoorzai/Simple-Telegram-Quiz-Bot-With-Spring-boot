@@ -16,6 +16,8 @@ public class User {
     String username;
     @Transient
     UserState userState;
+    @Transient
+    QuizInformation quizInformation;
 
     public int getId() {
         return id;
@@ -63,6 +65,14 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return id == user.id && Objects.equals(userid, user.userid) && Objects.equals(name, user.name) && Objects.equals(username, user.username);
+    }
+
+    public QuizInformation getQuizInformation() {
+        return quizInformation;
+    }
+
+    public void setQuizInformation(QuizInformation quizInformation) {
+        this.quizInformation = quizInformation;
     }
 
     @Override
