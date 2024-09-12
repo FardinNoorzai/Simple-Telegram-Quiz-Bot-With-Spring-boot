@@ -28,12 +28,16 @@ public class CommandDispatcher {
         switch (user.getUserState().getConversationState()){
             case START:
                 startCommand.execute(update);
+                break;
             case HOME:
                 homeCommand.execute(update);
+                break;
             case SELECT_QUIZ:
                 selectQuizCommand.execute(update);
+                break;
             case SELECT_QUIZ_QUESTION_COUNT:
                 selectQuizQuestionCountCommand.execute(update);
+                break;
 
 
 

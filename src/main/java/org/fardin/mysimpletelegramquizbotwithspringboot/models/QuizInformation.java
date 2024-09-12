@@ -1,15 +1,15 @@
 package org.fardin.mysimpletelegramquizbotwithspringboot.models;
 
 public class QuizInformation {
-    String category;
+    Category category;
     int categoryId;
     int questionCount;
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 

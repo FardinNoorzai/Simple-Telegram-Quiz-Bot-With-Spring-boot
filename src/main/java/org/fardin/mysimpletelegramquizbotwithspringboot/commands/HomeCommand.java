@@ -38,7 +38,7 @@ public class HomeCommand implements Command{
     public void execute(Update update) {
         if(update.getMessage().getText().equals("شروع امتحان")){
             List<Category> categoryList = categoryRepository.findAll();
-             List<String> buttonNames = new ArrayList<>();
+            List<String> buttonNames = new ArrayList<>();
             for(Category category : categoryList){
                 buttonNames.add(category.getName());
             }
